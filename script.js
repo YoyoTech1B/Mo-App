@@ -1,4 +1,6 @@
 const input = document.getElementById("userInput");
+const sendBtn = document.getElementById("sendBtn");
+const chatBox = document.getElementById("chatBox");
 
 const prompts = {
 
@@ -22,29 +24,77 @@ const prompts = {
 
 };
 
-document.querySelectorAll(".suggestion").forEach(button=>{
+// Suggestion buttons
+document.querySelectorAll(".suggestion").forEach(button => {
 
-button.addEventListener("click",()=>{
+    button.addEventListener("click", () => {
 
-input.value = prompts[button.textContent.trim()];
+        input.value = prompts[button.textContent.trim()];
+        input.focus();
 
-input.focus();
+    });
 
 });
 
+// Send button
+sendBtn.onclick = sendMessage;
+
+// Press Enter
+input.addEventListener("keypress", function(e){
+
+    if(e.key === "Enter"){
+        sendMessage();
+    }
+
 });
 
-const newChat = document.getElementById("newChat");
+// Main function
+function sendMessage(){
 
-newChat.onclick = () => {
+    if(input.value.trim() === "") return;
 
-location.reload();
+    // User message
+    const user = document.createElement("div");
+    user.className = "message user";
+    user.textContent = input.value;
 
+    chatBox.appendChild(user);
+
+    // Add to sidebar history
+    const history = document.querySelector(".chat-history");
+
+    const item = document.createElement("div");
+
+    item.className = "history-item";
+
+    let title = user.textContent;
+
+    if(title.length > 25){
+        title = title.substring(0,25) + "...";
+    }
+
+    item.textContent = "💬 " + title;
+
+    history.appendChild(item);
+
+    // AI message
+    const ai = document.createElement("div");
+    ai.className = "message ai";
+    ai.textContent = "🤖 Moar is thinking...";
+
+    chatBox.appendChild(ai);
+
+    input.value = "";
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+}
+
+// New Chat buttons
+document.getElementById("newChat").onclick = () => {
+    location.reload();
 };
-const newChatSide = document.getElementById("newChatSide");
 
-newChatSide.onclick = () => {
-
-location.reload();
-
+document.getElementById("newChatSide").onclick = () => {
+    location.reload();
 };
