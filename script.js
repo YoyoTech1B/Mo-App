@@ -33,3 +33,11 @@ input.focus();
 });
 
 });
+
+const newChat = document.getElementById("newChat");
+
+newChat.onclick = () => {
+
+location.reload();
+
+};
