@@ -98,3 +98,31 @@ document.getElementById("newChat").onclick = () => {
 document.getElementById("newChatSide").onclick = () => {
     location.reload();
 };
+const sendBtn = document.getElementById("sendBtn");
+const chatBox = document.getElementById("chatBox");
+
+sendBtn.onclick = async () => {
+
+const message = input.value.trim();
+
+if(message === "") return;
+
+// User message
+chatBox.innerHTML += `
+<div class="message user">
+${message}
+</div>
+`;
+
+input.value = "";
+
+// Thinking message
+chatBox.innerHTML += `
+<div class="message ai" id="thinking">
+Moar is thinking...
+</div>
+`;
+
+chatBox.scrollTop = chatBox.scrollHeight;
+
+};
