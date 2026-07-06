@@ -351,3 +351,18 @@ nav.scrolled{
 .input-area button:hover{
     transform:scale(1.05);
 }
+
+#newChat{
+    background:#333;
+    color:white;
+    border:none;
+    padding:16px 22px;
+    border-radius:15px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#newChat:hover{
+    background:#FFD54A;
+    color:#111;
+}
