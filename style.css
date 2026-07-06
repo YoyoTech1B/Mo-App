@@ -366,3 +366,61 @@ nav.scrolled{
     background:#FFD54A;
     color:#111;
 }
+.app{
+    display:flex;
+}
+
+.sidebar{
+    width:260px;
+    height:100vh;
+    position:fixed;
+    left:0;
+    top:0;
+
+    background:#111827;
+
+    padding:25px;
+
+    color:white;
+
+    overflow-y:auto;
+}
+
+.sidebar h2{
+    margin-bottom:30px;
+}
+
+.new-chat{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#FFD54A;
+    color:#111;
+    font-weight:bold;
+    cursor:pointer;
+    margin-bottom:25px;
+}
+
+.chat-history{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.history-item{
+    padding:14px;
+    border-radius:10px;
+    background:#1f2937;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.history-item:hover{
+    background:#374151;
+}
+
+.main{
+    margin-left:260px;
+    width:calc(100% - 260px);
+}
