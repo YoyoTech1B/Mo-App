@@ -1,11 +1,14 @@
-const nav = document.querySelector("nav");
+const suggestions = document.querySelectorAll(".suggestion");
+const input = document.getElementById("userInput");
 
-window.addEventListener("scroll", () => {
+suggestions.forEach(button => {
 
-    if(window.scrollY > 50){
-        nav.classList.add("scrolled");
-    }else{
-        nav.classList.remove("scrolled");
-    }
+    button.addEventListener("click", () => {
+
+        input.value = button.textContent.trim();
+
+        input.focus();
+
+    });
 
 });
