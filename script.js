@@ -41,3 +41,10 @@ newChat.onclick = () => {
 location.reload();
 
 };
+const newChatSide = document.getElementById("newChatSide");
+
+newChatSide.onclick = () => {
+
+location.reload();
+
+};
