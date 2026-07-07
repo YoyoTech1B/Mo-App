@@ -98,8 +98,6 @@ document.getElementById("newChat").onclick = () => {
 document.getElementById("newChatSide").onclick = () => {
     location.reload();
 };
-const sendBtn = document.getElementById("sendBtn");
-const chatBox = document.getElementById("chatBox");
 
 sendBtn.onclick = async () => {
 
